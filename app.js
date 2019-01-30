@@ -20,7 +20,7 @@ printer.init({
 printer.isPrinterConnected(function (isConnected) {
     if (isConnected) {
         console.log('conectado');
-        printer.printImage('./assets/logo.jpeg', function (done) {
+        printer.printImage('./assets/logo.png', function (done) {
             printer.bold(true);
             printer.alignCenter();
             printer.print(`
@@ -69,7 +69,7 @@ app.post('/print', (req, res) => {
             });
             return;
         }
-        printer.printImage('./assets/logo.jpeg', function (done) {
+        printer.printImage('./assets/logo.png', function (done) {
             printer.bold(true);
             printer.alignCenter();
             printer.print(`
