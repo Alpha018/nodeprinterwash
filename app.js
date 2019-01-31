@@ -18,7 +18,7 @@ printer.init({
     characterSet: 'SLOVENIA',
     removeSpecialCharacters: true,
     replaceSpecialCharacters: true,
-    extraSpecialCharacters: {'@': 164}
+    extraSpecialCharacters: {'@': 40}
 });
 
 printer.isPrinterConnected(function (isConnected) {
@@ -32,7 +32,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('ROSA MARÍA HERRERA CAAMAÑO');
             printer.println('Vicuña Maquena 2885 - Calama');
             printer.println('F: 84120496 - 552340966');
-            printer.println('lavanderiamathewashhouse\164gmail.com');
+            printer.println('lavanderiamathewashhouse@gmail.com');
 
             printer.drawLine();
             printer.alignRight();
@@ -100,7 +100,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(true);
             printer.println('Sistema Control y Gestión de Lavandería');
             printer.println('Sodired E.I.R.L - www.sodired.cl');
-            printer.println('56963424158 - contacto\164sodired.cl');
+            printer.println('56963424158 - contacto@sodired.cl');
             printer.cut();
             printer.execute(function (err) {
                 if (err) {
