@@ -45,7 +45,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.alignCenter();
             printer.leftRight('Fecha Recepción', '13/04/1995');
             printer.leftRight('Fecha Entrega', '13/04/1995');
-            printer.println('');
+            printer.println(' ');
 
 
             printer.alignLeft();
