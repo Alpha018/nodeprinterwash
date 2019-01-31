@@ -20,11 +20,10 @@ printer.init({
 printer.isPrinterConnected(function (isConnected) {
     if (isConnected) {
         console.log('conectado');
-        printer.printImage('./assets/logo.png', function (done) {
-            console.log(done);
-            printer.bold(true);
-            printer.alignCenter();
-            printer.print(`
+        printer.printImage('./assets/logo.png', function (done) {});
+        printer.bold(true);
+        printer.alignCenter();
+        printer.print(`
             LAVANDERÍA\n
             "THE WASH HOUSE"\n
             ROSA MARÍA HERRERA CAAMAÑO\n
@@ -32,14 +31,13 @@ printer.isPrinterConnected(function (isConnected) {
             F: 84120496 - 552340966\n
             lavanderiamathewashhouse@gmail.com\n
             `);
-            printer.execute(function (err) {
-                if(err) {
-                    console.log('print error: ' + err);
-                } else {
-                    console.log('print DONE!!');
-                }
-            })
-        });
+        printer.execute(function (err) {
+            if(err) {
+                console.log('print error: ' + err);
+            } else {
+                console.log('print DONE!!');
+            }
+        })
 
     } else {
         console.log('no conectado');
