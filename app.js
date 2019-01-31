@@ -33,9 +33,9 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('F: 84120496 - 552340966');
             printer.println('lavanderiamathewashhouse@gmail.com');
 
-
+            printer.drawLine();
             printer.alignRight();
-            printer.println(`N° ORDEN DE TRABAJO`);
+            printer.println('N ORDEN DE TRABAJO');
             printer.bold(false);
             printer.println('9999');
 
@@ -56,20 +56,17 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('MI CASA, 4703, ANTOFAGASTA'.toUpperCase());
 
 
-            printer.leftRight('¿DESPACHO DOMICILIO?', 'SI');
+            printer.leftRight('DESPACHO DOMICILIO', 'SI');
             printer.tableCustom([
-                {text: "CANT", align: "LEFT", width: 0.5, bold: true},
-                {text: "PRENDA", align: "CENTER", width: 0.5, bold: true},
-                {text: "VALOR", align: "RIGHT", width: 0.5, bold: true}
+                {text: "CANT", align: "LEFT", width: 0.3, bold: true},
+                {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
+                {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
             ]);
 
             const table = [
-                {text: "10", align: "LEFT", width: 0.5, bold: true},
-                {text: "PRENDA1", align: "CENTER", width: 0.5, bold: true},
-                {text: "1000", align: "RIGHT", width: 0.5, bold: true},
-                {text: "2", align: "LEFT", width: 0.5, bold: true},
-                {text: "PRENDA2", align: "CENTER", width: 0.5, bold: true},
-                {text: "2000", align: "RIGHT", width: 0.5, bold: true},
+                {text: "10", align: "LEFT", width: 0.3, bold: true},
+                {text: "PRENDA1", align: "CENTER", width: 0.3, bold: true},
+                {text: "1000", align: "RIGHT", width: 0.3, bold: true},
             ];
             printer.tableCustom(table);
 
