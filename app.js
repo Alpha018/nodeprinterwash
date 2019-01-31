@@ -38,7 +38,7 @@ printer.isPrinterConnected(function (isConnected) {
                 console.log('print DONE!!');
             }
         })
-
+        console.log('sali');
     } else {
         console.log('no conectado');
     }
