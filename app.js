@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 
 printer.init({
-    type: 'printer',
+    type: 'star',
     interface: '/dev/usb/lp0'
 });
 
