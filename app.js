@@ -32,19 +32,20 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('ROSA MARÍA HERRERA CAAMAÑO');
             printer.println('Vicuña Maquena 2885 - Calama');
             printer.println('F: 84120496 - 552340966');
-            printer.println('lavanderiamathewashhouse\@gmail.com');
+            printer.println('lavanderiamathewashhouse\164gmail.com');
 
             printer.drawLine();
             printer.alignRight();
             printer.println('N ORDEN DE TRABAJO');
             printer.bold(false);
             printer.println('9999');
+            printer.println('');
 
 
             printer.alignCenter();
             printer.leftRight('Fecha Recepción', '13/04/1995');
             printer.leftRight('Fecha Entrega', '13/04/1995');
-            printer.println('\n');
+            printer.println('');
 
 
             printer.alignLeft();
@@ -53,13 +54,13 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(false);
             printer.println('SODIRED');
             printer.bold(true);
-            printer.println('\n');
+            printer.println('');
             printer.println('DIRECCIÓN');
             printer.bold(false);
             printer.println('MI CASA, 4703, ANTOFAGASTA'.toUpperCase());
 
 
-            printer.println('\n');
+            printer.println('');
             printer.leftRight('DESPACHO DOMICILIO', 'SI');
             printer.drawLine();
             printer.tableCustom([
@@ -99,7 +100,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(true);
             printer.println('Sistema Control y Gestión de Lavandería');
             printer.println('Sodired E.I.R.L - www.sodired.cl');
-            printer.println('56963424158 - contacto\@sodired.cl');
+            printer.println('56963424158 - contacto\164sodired.cl');
             printer.cut();
             printer.execute(function (err) {
                 if (err) {
