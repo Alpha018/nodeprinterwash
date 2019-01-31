@@ -31,7 +31,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('ROSA MARÍA HERRERA CAAMAÑO');
             printer.println('Vicuña Maquena 2885 - Calama');
             printer.println('F: 84120496 - 552340966');
-            printer.println('lavanderiamathewashhouse@gmail.com');
+            printer.println('lavanderiamathewashhouse\@gmail.com');
 
             printer.drawLine();
             printer.alignRight();
@@ -65,22 +65,22 @@ printer.isPrinterConnected(function (isConnected) {
             ]);
 
             const table = [
-                {text: "10", align: "LEFT", width: 0.3, bold: false},
-                {text: "PRENDA1", align: "CENTER", width: 0.3, bold: false},
-                {text: "1000", align: "RIGHT", width: 0.3, bold: false},
+                {text: "10", align: "LEFT", width: 0.3},
+                {text: "PRENDA1", align: "CENTER", width: 0.3},
+                {text: "1000", align: "RIGHT", width: 0.3},
             ];
             printer.tableCustom(table);
 
             const table2 = [
-                {text: "20", align: "LEFT", width: 0.3, bold: false},
-                {text: "PRENDA2", align: "CENTER", width: 0.3, bold: false},
-                {text: "3000", align: "RIGHT", width: 0.3, bold: false},
+                {text: "20", align: "LEFT", width: 0.3},
+                {text: "PRENDA2", align: "CENTER", width: 0.3},
+                {text: "3000", align: "RIGHT", width: 0.3},
             ];
-            printer.tableCustom(table);
+            printer.tableCustom(table2);
 
             printer.tableCustom([
-                {text: 'TOTAL', align: "CENTER", width: 0.5},
-                {text: '4000', align: "RIGHT", width: 0.5}
+                {text: 'TOTAL', align: "LEFT", width: 0.3, bold: true},
+                {text: '4000', align: "RIGHT", width: 0.3}
             ]);
 
             printer.drawLine();
@@ -88,14 +88,14 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(true);
             printer.print('NOTA: ');
             printer.bold(false);
-            printer.println('Después de 30 días no se responde por trabajos no retirados');
+            printer.println('Después de 30 días no se responde por trabajos no retirados\n');
 
 
             printer.alignCenter();
             printer.bold(true);
             printer.println('Sistema Control y Gestión de Lavandería');
             printer.println('Sodired E.I.R.L - www.sodired.cl');
-            printer.println('56963424158 - contacto@sodired.cl');
+            printer.println('56963424158 - contacto\@sodired.cl');
             printer.cut();
             printer.execute(function (err) {
                 if (err) {
