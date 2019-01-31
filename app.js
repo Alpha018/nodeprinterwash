@@ -16,7 +16,7 @@ printer.init({
     type: printer.printerTypes.EPSON,
     interface: '/dev/usb/lp0',
     characterSet: 'SLOVENIA',
-    removeSpecialCharacters: false,
+    removeSpecialCharacters: true,
     replaceSpecialCharacters: true,
 });
 
@@ -32,9 +32,68 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('Vicuña Maquena 2885 - Calama');
             printer.println('F: 84120496 - 552340966');
             printer.println('lavanderiamathewashhouse@gmail.com');
+
+
+            printer.alignRight();
+            printer.println(`N° ORDEN DE TRABAJO`);
+            printer.bold(false);
+            printer.println('9999');
+
+
+            printer.alignCenter();
+            printer.leftRight('Fecha Recepción', '13/04/1995');
+            printer.leftRight('Fecha Entrega', '13/04/1995');
+
+
+            printer.alignLeft();
+            printer.bold(true);
+            printer.println('NOMBRE EMPRESA');
+            printer.bold(false);
+            printer.println('SODIRED');
+            printer.bold(true);
+            printer.println('DIRECCIÓN');
+            printer.bold(false);
+            printer.println('MI CASA, 4703, ANTOFAGASTA'.toUpperCase());
+
+
+            printer.leftRight('¿DESPACHO DOMICILIO?', 'SI');
+            printer.tableCustom([
+                {text: "CANT", align: "LEFT", width: 0.5, bold: true},
+                {text: "PRENDA", align: "CENTER", width: 0.5, bold: true},
+                {text: "VALOR", align: "RIGHT", width: 0.5, bold: true}
+            ]);
+
+            const table = [
+                {text: "10", align: "LEFT", width: 0.5, bold: true},
+                {text: "PRENDA1", align: "CENTER", width: 0.5, bold: true},
+                {text: "1000", align: "RIGHT", width: 0.5, bold: true},
+                {text: "2", align: "LEFT", width: 0.5, bold: true},
+                {text: "PRENDA2", align: "CENTER", width: 0.5, bold: true},
+                {text: "2000", align: "RIGHT", width: 0.5, bold: true},
+            ];
+            printer.tableCustom(table);
+
+            printer.tableCustom([
+                {text: 'TOTAL', align: "CENTER", width: 0.5},
+                {text: '3000', align: "RIGHT", width: 0.5}
+            ]);
+
+
+            printer.alignLeft();
+            printer.bold(true);
+            printer.print('NOTA: ');
+            printer.bold(false);
+            printer.println('Después de 30 días no se responde por trabajos no retirados');
+
+
+            printer.alignCenter();
+            printer.bold(true);
+            printer.println('Sistema Control y Gestión de Lavandería');
+            printer.println('Sodired E.I.R.L - www.sodired.cl');
+            printer.println('56963424158 - contacto@sodired.cl');
             printer.cut();
             printer.execute(function (err) {
-                if(err) {
+                if (err) {
                     console.log('print error: ' + err);
                 } else {
                     console.log('print DONE!!');
@@ -84,7 +143,6 @@ app.post('/print', (req, res) => {
             `);
 
 
-
             printer.alignRight();
             printer.println(`N° ORDEN DE TRABAJO`);
             printer.bold(false);
@@ -115,20 +173,20 @@ app.post('/print', (req, res) => {
             }
             printer.leftRight('¿DESPACHO DOMICILIO?', text);
             printer.tableCustom([
-                { text:"CANT", align:"LEFT", width:0.5, bold:true },
-                { text:"PRENDA", align:"CENTER", width:0.5, bold:true },
-                { text:"VALOR", align:"RIGHT", width:0.5, bold:true }
+                {text: "CANT", align: "LEFT", width: 0.5, bold: true},
+                {text: "PRENDA", align: "CENTER", width: 0.5, bold: true},
+                {text: "VALOR", align: "RIGHT", width: 0.5, bold: true}
             ]);
-            for(let i = 0; i < params.prendas.length; i++) {
+            for (let i = 0; i < params.prendas.length; i++) {
                 printer.tableCustom([
-                    { text: params.prendas[i].cant, align:"LEFT", width:0.5},
-                    { text: params.prendas[i].prenda, align:"CENTER", width:0.5},
-                    { text: params.prendas[i].valor, align:"RIGHT", width:0.5}
+                    {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
+                    {text: params.prendas[i].prenda, align: "CENTER", width: 0.5},
+                    {text: params.prendas[i].valor, align: "RIGHT", width: 0.5}
                 ]);
             }
             printer.tableCustom([
-                { text: 'TOTAL', align:"CENTER", width:0.5},
-                { text: params.total, align:"RIGHT", width:0.5}
+                {text: 'TOTAL', align: "CENTER", width: 0.5},
+                {text: params.total, align: "RIGHT", width: 0.5}
             ]);
 
 
@@ -139,7 +197,6 @@ app.post('/print', (req, res) => {
             printer.println('Después de 30 días no se responde por trabajos no retirados');
 
 
-
             printer.alignCenter();
             printer.bold(true);
             printer.println('Sistema Control y Gestión de Lavandería');
@@ -148,7 +205,7 @@ app.post('/print', (req, res) => {
             printer.cut();
 
             printer.execute(function (err) {
-                if(err) {
+                if (err) {
                     console.log('print error: ' + err);
                     res.status(500).send({
                         desc: 'Printer Error',
