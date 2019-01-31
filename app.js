@@ -21,6 +21,7 @@ printer.isPrinterConnected(function (isConnected) {
     if (isConnected) {
         console.log('conectado');
         printer.printImage('./assets/logo.png', function (done) {
+            console.log(done);
             printer.bold(true);
             printer.alignCenter();
             printer.print(`
