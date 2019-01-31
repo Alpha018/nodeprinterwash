@@ -5,7 +5,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const printer = require("node-thermal-printer");
 
 const app = express();
@@ -16,8 +15,8 @@ printer.init({
     type: printer.printerTypes.EPSON,
     interface: '/dev/usb/lp0',
     characterSet: 'SLOVENIA',
-    removeSpecialCharacters: true,
-    replaceSpecialCharacters: true,
+    removeSpecialCharacters: false,
+    replaceSpecialCharacters: false,
     extraSpecialCharacters: {
         '@': 64,
         'ñ': 241,
