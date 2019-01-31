@@ -97,8 +97,8 @@ printer.isPrinterConnected(function (isConnected) {
             printer.tableCustom(table2);
 
             printer.tableCustom([
-                {text: 'TOTAL', align: "CENTER", width: 0.6, bold: true},
-                {text: '4000', align: "RIGHT", width: 0.6}
+                {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
+                {text: '4000', align: "RIGHT", width: 0.5}
             ]);
 
             printer.drawLine();
