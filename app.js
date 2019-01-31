@@ -18,6 +18,7 @@ printer.init({
     characterSet: 'SLOVENIA',
     removeSpecialCharacters: true,
     replaceSpecialCharacters: true,
+    extraSpecialCharacters: {'@': 164}
 });
 
 printer.isPrinterConnected(function (isConnected) {
@@ -43,6 +44,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.alignCenter();
             printer.leftRight('Fecha Recepción', '13/04/1995');
             printer.leftRight('Fecha Entrega', '13/04/1995');
+            printer.println('\n');
 
 
             printer.alignLeft();
@@ -51,11 +53,13 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(false);
             printer.println('SODIRED');
             printer.bold(true);
+            printer.println('\n');
             printer.println('DIRECCIÓN');
             printer.bold(false);
             printer.println('MI CASA, 4703, ANTOFAGASTA'.toUpperCase());
 
 
+            printer.println('\n');
             printer.leftRight('DESPACHO DOMICILIO', 'SI');
             printer.drawLine();
             printer.tableCustom([
@@ -79,7 +83,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.tableCustom(table2);
 
             printer.tableCustom([
-                {text: 'TOTAL', align: "LEFT", width: 0.3, bold: true},
+                {text: 'TOTAL', align: "CENTER", width: 0.3, bold: true},
                 {text: '4000', align: "RIGHT", width: 0.3}
             ]);
 
