@@ -18,7 +18,21 @@ printer.init({
     characterSet: 'SLOVENIA',
     removeSpecialCharacters: true,
     replaceSpecialCharacters: true,
-    extraSpecialCharacters: {'@': 40}
+    extraSpecialCharacters: {
+        '@': 64,
+        'ñ': 241,
+        'Ñ': 209,
+        'á': 225,
+        'Á': 193,
+        'é': 233,
+        'É': 201,
+        'í': 237,
+        'Í': 205,
+        'ó': 243,
+        'Ó': 211,
+        'ú': 250,
+        'Ú': 218
+    }
 });
 
 printer.isPrinterConnected(function (isConnected) {
@@ -84,8 +98,8 @@ printer.isPrinterConnected(function (isConnected) {
             printer.tableCustom(table2);
 
             printer.tableCustom([
-                {text: 'TOTAL', align: "CENTER", width: 0.3, bold: true},
-                {text: '4000', align: "RIGHT", width: 0.3}
+                {text: 'TOTAL', align: "CENTER", width: 0.6, bold: true},
+                {text: '4000', align: "RIGHT", width: 0.6}
             ]);
 
             printer.drawLine();
