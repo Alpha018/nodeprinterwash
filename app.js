@@ -22,14 +22,13 @@ printer.init({
 
 printer.isPrinterConnected(function (isConnected) {
     if (isConnected) {
-        printer.printImage('./assets/logo.png', function (done) {
+        printer.printImage(`${__dirname}/assets/logo.png`, function (done) {
             printer.bold(true);
             printer.alignCenter();
-            printer.println('LAVANDERÍA');
+            printer.println('LAVANDERIA');
             printer.println('THE WASH HOUSE');
-            printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-            printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-            printer.println('Vicuña Maquena 2885 - Calama');
+            printer.println('ROSA MARIA HERRERA CAAMANO');
+            printer.println('Vicuna Maquena 2885 - Calama');
             printer.println('F: 84120496 - 552340966');
             printer.println('lavanderiamathewashhouse@gmail.com');
             printer.cut();
