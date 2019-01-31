@@ -39,7 +39,7 @@ printer.isPrinterConnected(function (isConnected) {
             printer.println('N ORDEN DE TRABAJO');
             printer.bold(false);
             printer.println('9999');
-            printer.println('');
+            printer.println(' ');
 
 
             printer.alignCenter();
@@ -54,13 +54,13 @@ printer.isPrinterConnected(function (isConnected) {
             printer.bold(false);
             printer.println('SODIRED');
             printer.bold(true);
-            printer.println('');
+            printer.println(' ');
             printer.println('DIRECCIÓN');
             printer.bold(false);
             printer.println('MI CASA, 4703, ANTOFAGASTA'.toUpperCase());
 
 
-            printer.println('');
+            printer.println(' ');
             printer.leftRight('DESPACHO DOMICILIO', 'SI');
             printer.drawLine();
             printer.tableCustom([
