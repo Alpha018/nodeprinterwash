@@ -57,6 +57,7 @@ printer.isPrinterConnected(function (isConnected) {
 
 
             printer.leftRight('DESPACHO DOMICILIO', 'SI');
+            printer.drawLine();
             printer.tableCustom([
                 {text: "CANT", align: "LEFT", width: 0.3, bold: true},
                 {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
@@ -64,18 +65,25 @@ printer.isPrinterConnected(function (isConnected) {
             ]);
 
             const table = [
-                {text: "10", align: "LEFT", width: 0.3, bold: true},
-                {text: "PRENDA1", align: "CENTER", width: 0.3, bold: true},
-                {text: "1000", align: "RIGHT", width: 0.3, bold: true},
+                {text: "10", align: "LEFT", width: 0.3, bold: false},
+                {text: "PRENDA1", align: "CENTER", width: 0.3, bold: false},
+                {text: "1000", align: "RIGHT", width: 0.3, bold: false},
+            ];
+            printer.tableCustom(table);
+
+            const table2 = [
+                {text: "20", align: "LEFT", width: 0.3, bold: false},
+                {text: "PRENDA2", align: "CENTER", width: 0.3, bold: false},
+                {text: "3000", align: "RIGHT", width: 0.3, bold: false},
             ];
             printer.tableCustom(table);
 
             printer.tableCustom([
                 {text: 'TOTAL', align: "CENTER", width: 0.5},
-                {text: '3000', align: "RIGHT", width: 0.5}
+                {text: '4000', align: "RIGHT", width: 0.5}
             ]);
 
-
+            printer.drawLine();
             printer.alignLeft();
             printer.bold(true);
             printer.print('NOTA: ');
