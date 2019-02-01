@@ -216,7 +216,7 @@ app.post('/print', (req, res) => {
             }
             printer.tableCustom([
                 {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
-                {text: '4000', align: "RIGHT", width: 0.5}
+                {text: params.total, align: "RIGHT", width: 0.5}
             ]);
 
 
@@ -296,14 +296,14 @@ app.post('/print', (req, res) => {
                 ]);
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.tableCustom([
-                        {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
-                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.5},
-                        {text: params.prendas[i].valor, align: "RIGHT", width: 0.5}
+                        {text: params.prendas[i].cant, align: "LEFT", width: 0.2},
+                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.2},
+                        {text: params.prendas[i].valor, align: "RIGHT", width: 0.2}
                     ]);
                 }
                 printer.tableCustom([
                     {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
-                    {text: '4000', align: "RIGHT", width: 0.5}
+                    {text: params.total, align: "RIGHT", width: 0.5}
                 ]);
 
 
