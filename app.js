@@ -16,7 +16,6 @@ app.use(cors());
 
 printer.init({
     type: printer.printerTypes.EPSON,
-    interface: '/dev/usb/lp0',
     characterSet: 'SLOVENIA',
     removeSpecialCharacters: true,
     replaceSpecialCharacters: false,
