@@ -203,19 +203,19 @@ app.post('/print', (req, res) => {
                 printer.drawLine();
                 printer.tableCustom([
                     {text: "CANT", align: "LEFT", width: 0.3, bold: true},
-                    {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
+                    {text: "PRENDA", align: "LEFT", width: 0.3, bold: true},
                     {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                 ]);
 
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.tableCustom([
                         {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
-                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
+                        {text: params.prendas[i].prenda.toUpperCase(), align: "LEFT", width: 0.3},
                         {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                     ]);
                 }
                 printer.tableCustom([
-                    {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
+                    {text: 'TOTAL', align: "RIGHT", width: 0.5, bold: true},
                     {text: params.total, align: "RIGHT", width: 0.5}
                 ]);
 
@@ -289,18 +289,18 @@ app.post('/print', (req, res) => {
                     printer.drawLine();
                     printer.tableCustom([
                         {text: "CANT", align: "LEFT", width: 0.3, bold: true},
-                        {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
+                        {text: "PRENDA", align: "LEFT", width: 0.3, bold: true},
                         {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                     ]);
                     for (let i = 0; i < params.prendas.length; i++) {
                         printer.tableCustom([
                             {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
-                            {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
+                            {text: params.prendas[i].prenda.toUpperCase(), align: "LEFT", width: 0.3},
                             {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                         ]);
                     }
                     printer.tableCustom([
-                        {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
+                        {text: 'TOTAL', align: "RIGHT", width: 0.5, bold: true},
                         {text: params.total, align: "RIGHT", width: 0.5}
                     ]);
 
