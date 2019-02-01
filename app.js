@@ -206,7 +206,7 @@ app.post('/print', (req, res) => {
                 {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
                 {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
             ]);
-            console.log(params.prendas);
+
             for (let i = 0; i < params.prendas.length; i++) {
                 printer.tableCustom([
                     {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
