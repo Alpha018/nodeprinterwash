@@ -1,5 +1,5 @@
 {
-  "name": "printer",
+  "name": "printerwash",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -13,6 +13,7 @@
     "express": "^4.16.4",
     "moment": "^2.23.0",
     "node-thermal-printer": "^2.0.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "printer": "^0.2.2"
   }
 }
