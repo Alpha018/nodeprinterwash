@@ -184,12 +184,12 @@ app.post('/print', (req, res) => {
             printer.bold(true);
             printer.println('NOMBRE EMPRESA');
             printer.bold(false);
-            printer.println(params.empresa.nombre.toUpperCase());
+            printer.println(params.nombre.toUpperCase());
             printer.bold(true);
             printer.println(' ');
             printer.println('DIRECCIÓN');
             printer.bold(false);
-            printer.println(params.empresa.direccion.toUpperCase());
+            printer.println(params.direccion.toUpperCase());
 
             printer.println(' ');
             printer.alignCenter();
@@ -209,7 +209,7 @@ app.post('/print', (req, res) => {
             for (let i = 0; i < params.prendas.length; i++) {
                 printer.tableCustom([
                     {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
-                    {text: params.prendas[i].prenda, align: "CENTER", width: 0.5},
+                    {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.5},
                     {text: params.prendas[i].valor, align: "RIGHT", width: 0.5}
                 ]);
             }
@@ -271,12 +271,12 @@ app.post('/print', (req, res) => {
                 printer.bold(true);
                 printer.println('NOMBRE EMPRESA');
                 printer.bold(false);
-                printer.println(params.empresa.nombre.toUpperCase());
+                printer.println(params.nombre.toUpperCase());
                 printer.bold(true);
                 printer.println(' ');
                 printer.println('DIRECCIÓN');
                 printer.bold(false);
-                printer.println(params.empresa.direccion.toUpperCase());
+                printer.println(params.direccion.toUpperCase());
 
                 printer.println(' ');
                 printer.alignCenter();
@@ -296,7 +296,7 @@ app.post('/print', (req, res) => {
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.tableCustom([
                         {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
-                        {text: params.prendas[i].prenda, align: "CENTER", width: 0.5},
+                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.5},
                         {text: params.prendas[i].valor, align: "RIGHT", width: 0.5}
                     ]);
                 }
