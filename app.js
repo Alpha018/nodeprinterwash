@@ -413,7 +413,7 @@ app.post('/printparticular', (req, res) => {
 
                     for (let i = 0; i < params.prendas.length; i++) {
                         printer.tableCustom([
-                            {text: `${params.prendas[i].cant} ${params.prendas[i].unit}`, align: "LEFT", width: 0.3},
+                            {text: `${params.prendas[i].cant} ${params.prendas[i].unit.toUpperCase()}`, align: "LEFT", width: 0.3},
                             {text: params.prendas[i].prenda.toUpperCase(), align: "LEFT", width: 0.3},
                             {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                         ]);
@@ -498,7 +498,7 @@ app.post('/printparticular', (req, res) => {
 
                         for (let i = 0; i < params.prendas.length; i++) {
                             printer.tableCustom([
-                                {text: `${params.prendas[i].cant} ${params.prendas[i].unit}`, align: "LEFT", width: 0.3},
+                                {text: `${params.prendas[i].cant} ${params.prendas[i].unit.toUpperCase()}`, align: "LEFT", width: 0.3},
                                 {text: params.prendas[i].prenda.toUpperCase(), align: "LEFT", width: 0.3},
                                 {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                             ]);
