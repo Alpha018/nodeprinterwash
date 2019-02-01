@@ -145,102 +145,14 @@ app.use(bodyParser.json());
 
 app.post('/print', (req, res) => {
     const params = req.body;
-
-    printer.isPrinterConnected(function (isConnected) {
-        if (!isConnected) {
-            res.status(500).send({
-                desc: 'Error con la impresora'
-            });
-            return;
-        }
-        printer.alignCenter();
-        printer.printImage(`${__dirname}/assets/logo.png`, function (done) {
-            printer.bold(true);
-            printer.alignCenter();
-            printer.println('LAVANDERÍA');
-            printer.println('THE WASH HOUSE');
-            printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-            printer.println('Vicuña Maquena 2885 - Calama');
-            printer.println('F: 84120496 - 552340966');
-            printer.println('lavanderiamathewashhouse@gmail.com');
-
-
-            printer.drawLine();
-            printer.alignRight();
-            printer.println('N ORDEN DE TRABAJO');
-            printer.bold(false);
-            printer.println(params.orden);
-            printer.println(' ');
-
-
-            printer.alignCenter();
-            printer.leftRight('Fecha Recepción', params.fechaRecepcion);
-            printer.leftRight('Fecha Entrega', params.fechaEntrega);
-            printer.println(' ');
-            printer.alignCenter();
-
-
-            printer.alignLeft();
-            printer.bold(true);
-            printer.println('NOMBRE EMPRESA');
-            printer.bold(false);
-            printer.println(params.nombre.toUpperCase());
-            printer.bold(true);
-            printer.println(' ');
-            printer.println('DIRECCIÓN');
-            printer.bold(false);
-            printer.println(params.direccion.toUpperCase());
-
-            printer.println(' ');
-            printer.alignCenter();
-            let text = 'NO';
-            if (params.delivery) {
-                text = 'SI'
-            } else {
-                text = 'NO'
+    try {
+        printer.isPrinterConnected(function (isConnected) {
+            if (!isConnected) {
+                res.status(500).send({
+                    desc: 'Error con la impresora'
+                });
+                return;
             }
-            printer.leftRight('DESPACHO DOMICILIO', text);
-            printer.drawLine();
-            printer.tableCustom([
-                {text: "CANT", align: "LEFT", width: 0.2, bold: true},
-                {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
-                {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
-            ]);
-
-            for (let i = 0; i < params.prendas.length; i++) {
-                printer.tableCustom([
-                    {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
-                    {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
-                    {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
-                ]);
-            }
-            printer.tableCustom([
-                {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
-                {text: params.total, align: "RIGHT", width: 0.5}
-            ]);
-
-
-            printer.drawLine();
-            printer.alignLeft();
-            printer.bold(true);
-            printer.print('NOTA: ');
-            printer.bold(false);
-            printer.println('Después de 30 días no se responde por trabajos no retirados\n');
-
-
-            printer.alignCenter();
-            printer.bold(true);
-            printer.println('Sistema Control y Gestión de Lavandería');
-            printer.println('Sodired E.I.R.L - www.sodired.cl');
-            printer.println('56963424158 - contacto@sodired.cl');
-            printer.println(' ');
-            printer.bold(false);
-            printer.println('Copia Cliente');
-            printer.cut();
-
-
-
-
             printer.alignCenter();
             printer.printImage(`${__dirname}/assets/logo.png`, function (done) {
                 printer.bold(true);
@@ -290,19 +202,20 @@ app.post('/print', (req, res) => {
                 printer.leftRight('DESPACHO DOMICILIO', text);
                 printer.drawLine();
                 printer.tableCustom([
-                    {text: "CANT", align: "LEFT", width: 0.3, bold: true},
+                    {text: "CANT", align: "LEFT", width: 0.2, bold: true},
                     {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
                     {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                 ]);
+
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.tableCustom([
-                        {text: params.prendas[i].cant, align: "LEFT", width: 0.2},
+                        {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
                         {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
                         {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                     ]);
                 }
                 printer.tableCustom([
-                    {text: 'TOTAL', align: "CENTER", width: 0.3, bold: true},
+                    {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
                     {text: params.total, align: "RIGHT", width: 0.5}
                 ]);
 
@@ -322,27 +235,118 @@ app.post('/print', (req, res) => {
                 printer.println('56963424158 - contacto@sodired.cl');
                 printer.println(' ');
                 printer.bold(false);
-                printer.println('Copia Empresa');
+                printer.println('Copia Cliente');
                 printer.cut();
 
-                printer.execute(function (err) {
-                    if (err) {
-                        console.log('print error: ' + err);
-                        res.status(500).send({
-                            desc: 'Printer Error',
-                            err: err.message
-                        })
-                    } else {
-                        console.log('print DONE!!');
-                        res.status(200).send({
-                            desc: 'Printer done!'
-                        })
-                    }
-                })
-            });
 
-        });
-    })
+                printer.alignCenter();
+                printer.printImage(`${__dirname}/assets/logo.png`, function (done) {
+                    printer.bold(true);
+                    printer.alignCenter();
+                    printer.println('LAVANDERÍA');
+                    printer.println('THE WASH HOUSE');
+                    printer.println('ROSA MARÍA HERRERA CAAMAÑO');
+                    printer.println('Vicuña Maquena 2885 - Calama');
+                    printer.println('F: 84120496 - 552340966');
+                    printer.println('lavanderiamathewashhouse@gmail.com');
+
+
+                    printer.drawLine();
+                    printer.alignRight();
+                    printer.println('N ORDEN DE TRABAJO');
+                    printer.bold(false);
+                    printer.println(params.orden);
+                    printer.println(' ');
+
+
+                    printer.alignCenter();
+                    printer.leftRight('Fecha Recepción', params.fechaRecepcion);
+                    printer.leftRight('Fecha Entrega', params.fechaEntrega);
+                    printer.println(' ');
+                    printer.alignCenter();
+
+
+                    printer.alignLeft();
+                    printer.bold(true);
+                    printer.println('NOMBRE EMPRESA');
+                    printer.bold(false);
+                    printer.println(params.nombre.toUpperCase());
+                    printer.bold(true);
+                    printer.println(' ');
+                    printer.println('DIRECCIÓN');
+                    printer.bold(false);
+                    printer.println(params.direccion.toUpperCase());
+
+                    printer.println(' ');
+                    printer.alignCenter();
+                    let text = 'NO';
+                    if (params.delivery) {
+                        text = 'SI'
+                    } else {
+                        text = 'NO'
+                    }
+                    printer.leftRight('DESPACHO DOMICILIO', text);
+                    printer.drawLine();
+                    printer.tableCustom([
+                        {text: "CANT", align: "LEFT", width: 0.3, bold: true},
+                        {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
+                        {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
+                    ]);
+                    for (let i = 0; i < params.prendas.length; i++) {
+                        printer.tableCustom([
+                            {text: params.prendas[i].cant, align: "LEFT", width: 0.2},
+                            {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
+                            {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
+                        ]);
+                    }
+                    printer.tableCustom([
+                        {text: 'TOTAL', align: "CENTER", width: 0.5, bold: true},
+                        {text: params.total, align: "RIGHT", width: 0.5}
+                    ]);
+
+
+                    printer.drawLine();
+                    printer.alignLeft();
+                    printer.bold(true);
+                    printer.print('NOTA: ');
+                    printer.bold(false);
+                    printer.println('Después de 30 días no se responde por trabajos no retirados\n');
+
+
+                    printer.alignCenter();
+                    printer.bold(true);
+                    printer.println('Sistema Control y Gestión de Lavandería');
+                    printer.println('Sodired E.I.R.L - www.sodired.cl');
+                    printer.println('56963424158 - contacto@sodired.cl');
+                    printer.println(' ');
+                    printer.bold(false);
+                    printer.println('Copia Empresa');
+                    printer.cut();
+
+                    printer.execute(function (err) {
+                        if (err) {
+                            console.log('print error: ' + err);
+                            res.status(500).send({
+                                desc: 'Printer Error',
+                                err: err.message
+                            })
+                        } else {
+                            console.log('print DONE!!');
+                            res.status(200).send({
+                                desc: 'Printer done!'
+                            })
+                        }
+                    })
+                });
+
+            });
+        })
+    } catch (e) {
+        res.status(500).send({
+            desc: 'problemas con el servidor',
+            error: e
+        })
+    }
 });
 
 //rutas body-parser
