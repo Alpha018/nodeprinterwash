@@ -209,9 +209,9 @@ app.post('/print', (req, res) => {
 
             for (let i = 0; i < params.prendas.length; i++) {
                 printer.tableCustom([
-                    {text: params.prendas[i].cant, align: "LEFT", width: 0.5},
-                    {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.5},
-                    {text: params.prendas[i].valor, align: "RIGHT", width: 0.5}
+                    {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
+                    {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
+                    {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                 ]);
             }
             printer.tableCustom([
@@ -296,9 +296,9 @@ app.post('/print', (req, res) => {
                 ]);
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.tableCustom([
-                        {text: params.prendas[i].cant, align: "LEFT", width: 0.2},
-                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.2},
-                        {text: params.prendas[i].valor, align: "RIGHT", width: 0.2}
+                        {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
+                        {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
+                        {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                     ]);
                 }
                 printer.tableCustom([
