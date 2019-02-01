@@ -199,7 +199,7 @@ app.post('/print', (req, res) => {
             } else {
                 text = 'NO'
             }
-            printer.leftRight('DESPACHO DOMICILIO', 'SI');
+            printer.leftRight('DESPACHO DOMICILIO', text);
             printer.drawLine();
             printer.tableCustom([
                 {text: "CANT", align: "LEFT", width: 0.2, bold: true},
@@ -287,7 +287,7 @@ app.post('/print', (req, res) => {
                 } else {
                     text = 'NO'
                 }
-                printer.leftRight('DESPACHO DOMICILIO', 'SI');
+                printer.leftRight('DESPACHO DOMICILIO', text);
                 printer.drawLine();
                 printer.tableCustom([
                     {text: "CANT", align: "LEFT", width: 0.2, bold: true},
