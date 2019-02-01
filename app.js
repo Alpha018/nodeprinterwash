@@ -325,13 +325,11 @@ app.post('/print', (req, res) => {
 
                     printer.execute(function (err) {
                         if (err) {
-                            console.log('print error: ' + err);
                             res.status(500).send({
                                 desc: 'Printer Error',
                                 err: err.message
                             })
                         } else {
-                            console.log('print DONE!!');
                             res.status(200).send({
                                 desc: 'Printer done!'
                             })
