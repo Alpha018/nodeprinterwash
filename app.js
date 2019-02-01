@@ -202,7 +202,7 @@ app.post('/print', (req, res) => {
                 printer.leftRight('DESPACHO DOMICILIO', text);
                 printer.drawLine();
                 printer.tableCustom([
-                    {text: "CANT", align: "LEFT", width: 0.2, bold: true},
+                    {text: "CANT", align: "LEFT", width: 0.3, bold: true},
                     {text: "PRENDA", align: "CENTER", width: 0.3, bold: true},
                     {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                 ]);
@@ -294,7 +294,7 @@ app.post('/print', (req, res) => {
                     ]);
                     for (let i = 0; i < params.prendas.length; i++) {
                         printer.tableCustom([
-                            {text: params.prendas[i].cant, align: "LEFT", width: 0.2},
+                            {text: params.prendas[i].cant, align: "LEFT", width: 0.3},
                             {text: params.prendas[i].prenda.toUpperCase(), align: "CENTER", width: 0.3},
                             {text: params.prendas[i].valor, align: "RIGHT", width: 0.3}
                         ]);
