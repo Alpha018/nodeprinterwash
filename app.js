@@ -143,7 +143,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.post('/print', (req, res) => {
+app.post('/printempresa', (req, res) => {
     const params = req.body;
     try {
         printer.isPrinterConnected(function (isConnected) {
@@ -347,7 +347,7 @@ app.post('/print', (req, res) => {
     }
 });
 
-app.post('/print', (req, res) => {
+app.post('/printparticular', (req, res) => {
         const params = req.body;
         try {
             printer.isPrinterConnected(function (isConnected) {
