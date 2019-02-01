@@ -407,7 +407,6 @@ app.post('/printparticular', (req, res) => {
                     printer.drawLine();
                     printer.tableCustom([
                         {text: "CANT", align: "LEFT", width: 0.3, bold: true},
-                        {text: "UNIDAD", align: "LEFT", width: 0.3, bold: true},
                         {text: "PRENDA", align: "LEFT", width: 0.3, bold: true},
                         {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                     ]);
@@ -493,7 +492,6 @@ app.post('/printparticular', (req, res) => {
                         printer.drawLine();
                         printer.tableCustom([
                             {text: "CANT", align: "LEFT", width: 0.3, bold: true},
-                            {text: "UNIDAD", align: "LEFT", width: 0.3, bold: true},
                             {text: "PRENDA", align: "LEFT", width: 0.3, bold: true},
                             {text: "VALOR", align: "RIGHT", width: 0.3, bold: true}
                         ]);
