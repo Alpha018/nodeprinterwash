@@ -201,7 +201,7 @@ app.post('/printempresa', (req, res) => {
                 }
                 printer.leftRight('DESPACHO DOMICILIO', text);
                 printer.drawLine();
-                printer.leftRight('CANT', 'PRENDA');
+                printer.leftRight('PRENDA', 'CANT');
 
                 for (let i = 0; i < params.prendas.length; i++) {
                     printer.leftRight(params.prendas[i].nombre, params.prendas[i].prendas.length);
@@ -274,7 +274,7 @@ app.post('/printempresa', (req, res) => {
                     }
                     printer.leftRight('DESPACHO DOMICILIO', text);
                     printer.drawLine();
-                    printer.leftRight('CANT', 'PRENDA');
+                    printer.leftRight('PRENDA', 'CANT');
 
                     for (let i = 0; i < params.prendas.length; i++) {
                         printer.leftRight(params.prendas[i].nombre, params.prendas[i].prendas.length);
