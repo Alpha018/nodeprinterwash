@@ -160,7 +160,7 @@ app.post('/printempresa', (req, res) => {
                 printer.println('LAVANDERÍA');
                 printer.println('THE WASH HOUSE');
                 printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-                printer.println('Vicuña Maquena 2885 - Calama');
+                printer.println('Vicuña Mackenna N° 2885 - Calama');
                 printer.println('F: 84120496 - 552340966');
                 printer.println('lavanderiamathewashhouse@gmail.com');
 
@@ -233,7 +233,7 @@ app.post('/printempresa', (req, res) => {
                     printer.println('LAVANDERÍA');
                     printer.println('THE WASH HOUSE');
                     printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-                    printer.println('Vicuña Maquena 2885 - Calama');
+                    printer.println('Vicuña Mackenna N° 2885 - Calama');
                     printer.println('F: 84120496 - 552340966');
                     printer.println('lavanderiamathewashhouse@gmail.com');
 
@@ -340,7 +340,7 @@ app.post('/printparticular', (req, res) => {
                     printer.println('LAVANDERÍA');
                     printer.println('THE WASH HOUSE');
                     printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-                    printer.println('Vicuña Maquena 2885 - Calama');
+                    printer.println('Vicuña Mackenna N° 2885 - Calama');
                     printer.println('F: 84120496 - 552340966');
                     printer.println('lavanderiamathewashhouse@gmail.com');
 
@@ -425,7 +425,7 @@ app.post('/printparticular', (req, res) => {
                         printer.println('LAVANDERÍA');
                         printer.println('THE WASH HOUSE');
                         printer.println('ROSA MARÍA HERRERA CAAMAÑO');
-                        printer.println('Vicuña Maquena 2885 - Calama');
+                        printer.println('Vicuña Mackenna N° 2885 - Calama');
                         printer.println('F: 84120496 - 552340966');
                         printer.println('lavanderiamathewashhouse@gmail.com');
 
